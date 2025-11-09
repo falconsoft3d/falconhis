@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_form_his_room" model="ir.ui.view">
+            <field name="name">view.form.his.room</field>
+            <field name="model">his.room</field>
+            <field name="arch" type="xml">
+                <form string="room">
+                    <sheet>
+                        <group>
+                            <group string="General">
+                                <field name="name"/>
+                            </group>
+                            <group string="Other">
+                                <field name="his_floor_id" options="{'no_create': True}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_list_his_room" model="ir.ui.view">
+            <field name="name">view.tree.his.room</field>
+            <field name="model">his.room</field>
+            <field name="arch" type="xml">
+                <list string="room"  open_form_view="True">
+                    <field name="name" optional="show" />
+                    <field name="his_floor_id" optional="show"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_his_room" model="ir.actions.act_window">
+            <field name="name">room</field>
+            <field name="res_model">his.room</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_list_his_room"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create a new room!
+                </p></field>
+        </record>
+
+    </data>
+</odoo>

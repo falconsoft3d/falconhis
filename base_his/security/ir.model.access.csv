@@ -3,3 +3,7 @@ access_his_disease,his.disease,model_his_disease,,1,1,1,1
 access_type_measurement,type.measurement,model_type_measurement,,1,1,1,1
 access_medical_specialty,medical.specialty,model_medical_specialty,,1,1,1,1
 access_his_hospital,his.hospital,model_his_hospital,,1,1,1,1
+access_his_building,his.building,model_his_building,,1,1,1,1
+access_his_floor,his.floor,model_his_floor,,1,1,1,1
+access_his_room,his.room,model_his_room,,1,1,1,1
+access_his_bed,his.bed,model_his_bed,,1,1,1,1

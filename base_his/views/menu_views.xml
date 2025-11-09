@@ -30,6 +30,26 @@
                       action="base_his.action_his_hospital"
                       sequence="40"/>
 
+                <menuitem id="menu_his_building"
+                        name="Buildings"
+                        action="base_his.action_his_building"
+                        sequence="50"/>
+
+                <menuitem id="menu_his_floor"
+                        name="Floors"
+                        action="base_his.action_his_floor"
+                        sequence="60"/>
+
+                <menuitem id="menu_his_room"
+                        name="Rooms"
+                        action="base_his.action_his_room"
+                        sequence="70"/>
+
+                <menuitem id="menu_his_bed"
+                        name="Beds"
+                        action="base_his.action_his_bed"
+                        sequence="80"/>
+
             </menuitem>
         </menuitem>
     </data>
