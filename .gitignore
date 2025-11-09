@@ -1,0 +1,143 @@
+# ============================================
+# 🌍 Odoo + Python + PyCharm .gitignore
+# ============================================
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.pyc
+*.egg-info/
+*.egg
+.eggs/
+*.manifest
+*.spec
+*.log
+
+# ---- Virtualenv / venv ----
+venv/
+env/
+ENV/
+.venv/
+.python-version
+
+# ---- Build / Dist ----
+build/
+dist/
+develop-eggs/
+.installed.cfg
+
+# ---- Odoo ----
+# Archivos de configuración
+*.conf
+*.cfg
+
+# Archivos generados por Odoo
+.odoo/
+.odoorc
+*.db
+*.sql
+*.zip
+*.tar
+*.dat
+*.rdb
+*.xlsx
+*.xls
+*.csv
+*.pdf
+*.bak
+
+# Logs
+*.log
+logs/
+logfile
+*.tmp
+tmp/
+temp/
+*.swp
+
+# Datos de sesión / runtime
+*.pid
+*.seed
+*.lock
+sessions/
+.cache/
+.cache/*
+
+# ---- PyCharm ----
+.idea/
+*.iml
+*.ipr
+*.iws
+__pycache__/
+# Archivos de configuración local
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/httpRequests/
+.idea/dataSources/
+.idea/dataSources.local.xml
+
+# ---- Sistema operativo ----
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+.nfs*
+
+# ---- Docker / Contenedores ----
+*.dockerfile
+*.env
+.env
+.env.local
+.env.test
+docker-compose.override.yml
+docker-compose.yml
+
+# ---- Tests / Coverage ----
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+tests/__pycache__/
+
+# ---- VSCode (por si usas ambos editores) ----
+.vscode/
+
+# ---- Node (si usas frontend con Odoo 16+ o Next.js) ----
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+pnpm-lock.yaml
+
+# ---- Archivos personales / temporales ----
+*.bak
+*.tmp
+*.old
+*.orig
+*.rej
+~*
+
+# ============================================
+# ✅ Fin del archivo .gitignore
+# ============================================
