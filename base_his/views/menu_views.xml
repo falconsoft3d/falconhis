@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_his"
+                  name="HIS"
+                  web_icon="base_his,static/description/icon.png"
+                  sequence="55">
+
+            <menuitem id="menu_his_config"
+                  sequence="99"
+                  name="Configuration">
+
+                <menuitem id="menu_his_disease"
+                      name="Diseases"
+                      action="base_his.action_his_disease"
+                      sequence="10"/>
+
+                <menuitem id="menu_his_measurement"
+                      name="Measurements"
+                      action="base_his.action_type_measurement"
+                      sequence="20"/>
+
+                <menuitem id="menu_medical_specialty"
+                      name="Medical Specialties"
+                      action="base_his.action_medical_specialty"
+                      sequence="30"/>
+
+                <menuitem id="menu_his_hospital"
+                      name="Hospitals"
+                      action="base_his.action_his_hospital"
+                      sequence="40"/>
+
+            </menuitem>
+        </menuitem>
+    </data>
+</odoo>

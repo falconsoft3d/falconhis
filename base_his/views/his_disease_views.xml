@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_form_his_disease" model="ir.ui.view">
+            <field name="name">view.form.his.disease</field>
+            <field name="model">his.disease</field>
+            <field name="arch" type="xml">
+                <form string="Disease">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="code"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="General">
+                                <field name="name"/>
+                            </group>
+                            <group string="Other">
+                            </group>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_list_his_disease" model="ir.ui.view">
+            <field name="name">view.tree.his.disease</field>
+            <field name="model">his.disease</field>
+            <field name="arch" type="xml">
+                <list string="Disease"  open_form_view="True">
+                    <field name="code" optional="show"/>
+                    <field name="name" optional="show" />
+                </list>
+            </field>
+        </record>
+
+        <record id="action_his_disease" model="ir.actions.act_window">
+            <field name="name">Disease</field>
+            <field name="res_model">his.disease</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_list_his_disease"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create a new Disease!
+                </p></field>
+        </record>
+
+    </data>
+</odoo>

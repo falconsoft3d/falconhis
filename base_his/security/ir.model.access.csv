@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_his_disease,his.disease,model_his_disease,,1,1,1,1
+access_type_measurement,type.measurement,model_type_measurement,,1,1,1,1
+access_medical_specialty,medical.specialty,model_medical_specialty,,1,1,1,1
