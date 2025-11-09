@@ -23,6 +23,7 @@ Allows users to configure
         'views/his_disease_views.xml',
         'views/type_measurement_views.xml',
         'views/medical_specialty_views.xml',
+        'views/his_hospital_views.xml',
         'views/menu_views.xml',
     ],
     'license': 'LGPL-3',
