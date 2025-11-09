@@ -10,3 +10,7 @@ class HisBed(models.Model):
     name = fields.Char('Name', translate=True)
     his_room_id = fields.Many2one(
         'his.room', string='Room', required=True, ondelete='cascade')
+
+    res_partner_id = fields.Many2one(
+        'res.partner', string='Patient', ondelete='set null',
+        help="Patient assigned to this bed")

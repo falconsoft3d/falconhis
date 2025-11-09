@@ -13,6 +13,7 @@
                             </group>
                             <group string="Other">
                                 <field name="his_room_id" options="{'no_create': True}"/>
+                                <field name="res_partner_id" options="{'no_create': True}"/>
                             </group>
                         </group>
                     </sheet>
@@ -29,6 +30,7 @@
                 <list string="bed"  open_form_view="True">
                     <field name="name" optional="show" />
                     <field name="his_room_id" optional="show"/>
+                    <field name="res_partner_id" optional="show"/>
                 </list>
             </field>
         </record>

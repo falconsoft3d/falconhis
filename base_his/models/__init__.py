@@ -11,3 +11,7 @@ from . import his_building
 from . import his_floor
 from . import his_room
 from . import his_bed
+from . import medical_record
+
+# inherit
+# from . import res_partner

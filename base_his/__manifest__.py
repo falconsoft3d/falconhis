@@ -17,8 +17,10 @@ Allows users to configure
         'security/ir.model.access.csv',
         # Data
         'data/his_disease_data.xml',
+        'data/ir_sequence.xml',
         # Views inheritance
         'views/product_template_views.xml',
+        # 'views/res_partner_views.xml',
         # Views
         'views/his_disease_views.xml',
         'views/type_measurement_views.xml',
@@ -28,6 +30,8 @@ Allows users to configure
         'views/his_floor_views.xml',
         'views/his_room_views.xml',
         'views/his_bed_views.xml',
+        'views/medical_record_views.xml',
+
         'views/menu_views.xml',
     ],
     'license': 'LGPL-3',

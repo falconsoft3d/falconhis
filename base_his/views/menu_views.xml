@@ -51,6 +51,19 @@
                         sequence="80"/>
 
             </menuitem>
+
+
+            <menuitem id="menu_home"
+                  sequence="10"
+                  name="Home">
+
+                <menuitem id="menu_medical_records"
+                      name="Medical Records"
+                      action="base_his.action_medical_record"
+                      sequence="10"/>
+
+            </menuitem>
+
         </menuitem>
     </data>
 </odoo>

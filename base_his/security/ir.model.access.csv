@@ -7,3 +7,4 @@ access_his_building,his.building,model_his_building,,1,1,1,1
 access_his_floor,his.floor,model_his_floor,,1,1,1,1
 access_his_room,his.room,model_his_room,,1,1,1,1
 access_his_bed,his.bed,model_his_bed,,1,1,1,1
+access_medical_record,medical.record,model_medical_record,,1,1,1,1
