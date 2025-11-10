@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_form_patient_movement" model="ir.ui.view">
+            <field name="name">view.form.patient.movement</field>
+            <field name="model">patient.movement</field>
+            <field name="arch" type="xml">
+                <form string="Patient Movement">
+                    <header>
+
+                        <button name="action_complete_movement" string="To Completed"
+                           type="object" invisible="state != 'draft'"
+                           class="oe_highlight"/>
+
+                        <button name="action_set_draft" string="To Draft"
+                           type="object" invisible="state == 'draft'"
+                           class="oe_highlight"/>
+
+                        <field name="state" widget="statusbar"/>
+
+                    </header>
+
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="General">
+                                <field name="res_partner_id" readonly="state not in ['draft']"/>
+                                <field name="type_of_movement" readonly="state not in ['draft']"/>
+                                <field name="from_his_room_id" readonly="state not in ['draft']"/>
+                                <field name="to_his_room_id" readonly="state not in ['draft']"/>
+                            </group>
+                            <group string="Other">
+                                <field name="creation_date" readonly="state not in ['draft']" />
+                                <field name="user_id" readonly="state not in ['draft']"/>
+                                <field name="company_id" readonly="state not in ['draft']"/>
+                            </group>
+                        </group>
+                        <field name="description" readonly="state not in ['draft']"/>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_list_patient_movement" model="ir.ui.view">
+            <field name="name">view.tree.patient.movement</field>
+            <field name="model">patient.movement</field>
+            <field name="arch" type="xml">
+                <list string="Medical Record"
+                      decoration-danger="state == 'draft'"
+                      open_form_view="True">
+                    <field name="name" optional="show" />
+                    <field name="res_partner_id" optional="show"/>
+                    <field name="type_of_movement" readonly="state not in ['draft']"/>
+                    <field name="from_his_room_id" readonly="state not in ['draft']"/>
+                    <field name="to_his_room_id" readonly="state not in ['draft']"/>
+                    <field name="creation_date" optional="show"/>
+                    <field name="user_id" optional="show"/>
+                    <field name="company_id" optional="show"/>
+                    <field name="user_id" optional="show"/>
+                    <field name="state" optional="show"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_patient_movement" model="ir.actions.act_window">
+            <field name="name">Patient Movement</field>
+            <field name="res_model">patient.movement</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_list_patient_movement"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create a new Patient Movement!
+                </p></field>
+        </record>
+
+    </data>
+</odoo>

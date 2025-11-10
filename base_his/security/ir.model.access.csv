@@ -8,3 +8,9 @@ access_his_floor,his.floor,model_his_floor,,1,1,1,1
 access_his_room,his.room,model_his_room,,1,1,1,1
 access_his_bed,his.bed,model_his_bed,,1,1,1,1
 access_medical_record,medical.record,model_medical_record,,1,1,1,1
+access_medical_action,medical.action,model_medical_action,,1,1,1,1
+access_medical_action_set,medical.action.set,model_medical_action_set,,1,1,1,1
+access_medical_action_set_line,medical.action.set.line,model_medical_action_set_line,,1,1,1,1
+access_patient_movement,patient.movement,model_patient_movement,,1,1,1,1
+access_ia_config,ia.config,model_ia_config,,1,1,1,1
+access_ai_prompt,ai.prompt,model_ai_prompt,,1,1,1,1

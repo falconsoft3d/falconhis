@@ -11,7 +11,7 @@
                            type="object" invisible="state != 'draft'"
                            class="oe_highlight"/>
 
-                        <button name="action_set_draft" string="Reopen"
+                        <button name="action_set_draft" string="To Draft"
                            type="object" invisible="state != 'closed'"
                            class="oe_highlight"/>
 
@@ -29,6 +29,7 @@
                             <group string="General">
                                 <field name="res_partner_id" options="{'no_create': True}" readonly="state in ['closed']"/>
                                 <field name="medical_specialty_id" options="{'no_create': True}" readonly="state in ['closed']"/>
+                                <field name="his_disease_id" options="{'no_create': True}" readonly="state in ['closed']"/>
                             </group>
                             <group string="Other">
                                 <field name="creation_date" readonly="state in ['closed']"/>
@@ -36,7 +37,31 @@
                                 <field name="company_id" readonly="state in ['closed']"/>
                             </group>
                         </group>
-                        <field name="description" readonly="state in ['closed']"/>
+
+                        <notebook>
+                            <page string="Clinical Notes">
+                                <field name="description" readonly="state in ['closed']"/>
+                            </page>
+                            <page string="IA">
+                                <group>
+                                    <group>
+                                        <field name="ai_prompt_id" options="{'no_create': True}" 
+                                               readonly="state in ['closed']"/>
+                                    </group>
+                                    <group>
+                                        <button name="action_generate_ai_recommendation" string="Generate with Current Prompt"
+                                           type="object" class="btn-secondary"
+                                           icon="fa-refresh"
+                                           invisible="not ai_prompt_id"
+                                           help="Generate AI recommendation using the selected prompt"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="ai_recommendation" readonly="1" widget="text"/>
+                                </group>
+                            </page>
+                        </notebook>
+
                     </sheet>
                     <chatter/>
                 </form>
@@ -50,16 +75,19 @@
             <field name="arch" type="xml">
                 <list string="Medical Record"  open_form_view="True">
                     <field name="name" optional="show" />
-                    <field name="res_partner_id"/>
-                    <field name="medical_specialty_id"/>
-                    <field name="creation_date"/>
-                    <field name="user_id"/>
-                    <field name="company_id"/>
-                    <field name="user_id"/>
-                    <field name="state"/>
+                    <field name="res_partner_id"  optional="show" />
+                    <field name="medical_specialty_id"  optional="show" />
+                    <field name="his_disease_id"  optional="show" />
+                    <field name="creation_date"  optional="show" />
+                    <field name="user_id"  optional="show" />
+                    <field name="company_id"  optional="show" />
+                    <field name="user_id"  optional="show" />
+                    <field name="state"  optional="show" />
                 </list>
             </field>
         </record>
+
+
 
         <record id="action_medical_record" model="ir.actions.act_window">
             <field name="name">Medical Record</field>

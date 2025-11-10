@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Default Medical Diagnosis Prompt -->
+        <record id="ai_prompt_default_medical_diagnosis" model="ai.prompt">
+            <field name="name">Standard Medical Diagnosis</field>
+            <field name="sequence">10</field>
+            <field name="is_default" eval="True"/>
+            <field name="max_tokens">800</field>
+            <field name="temperature">0.7</field>
+            <field name="prompt_template">Eres un asistente médico con IA. Basándote en la siguiente información del registro médico, proporciona un análisis médico estructurado:
+
+Paciente: {patient_info}
+Especialidad Médica: {specialty}
+Enfermedad Asociada: {disease}
+Descripción Médica: {description}
+
+Debes proporcionar tu respuesta siguiendo ESTRICTAMENTE este formato:
+
+**MDM (Análisis Médico):**
+[Proporciona un análisis detallado de la condición médica, síntomas presentados y evaluación clínica]
+
+**DIFERENCIALES (Posibles Diagnósticos):**
+[Lista todos los posibles diagnósticos diferenciales, ordenados por probabilidad]
+
+**PLAN (Plan de Acción):**
+[Describe el plan de tratamiento recomendado, estudios adicionales necesarios, medicación sugerida y seguimiento]
+
+Responde SIEMPRE en español y mantén el formato exacto.</field>
+            <field name="system_message">Eres un asistente médico profesional especializado en análisis clínico. Proporcionas recomendaciones médicas estructuradas siguiendo el formato: MDM (Análisis Médico), DIFERENCIALES (Posibles Diagnósticos) y PLAN (Plan de Acción). Siempre respondes en español de manera profesional, clara y basada en evidencia médica.</field>
+            <field name="description">Prompt estándar para diagnóstico médico con análisis MDM, diferenciales y plan de acción.</field>
+        </record>
+
+        <!-- Quick Assessment Prompt -->
+        <record id="ai_prompt_quick_assessment" model="ai.prompt">
+            <field name="name">Quick Medical Assessment</field>
+            <field name="sequence">20</field>
+            <field name="is_default" eval="False"/>
+            <field name="max_tokens">400</field>
+            <field name="temperature">0.5</field>
+            <field name="prompt_template">Analiza rápidamente el siguiente caso médico:
+
+Paciente: {patient_info}
+Especialidad: {specialty}
+Síntomas/Descripción: {description}
+
+Proporciona una evaluación breve y concisa con los puntos clave.</field>
+            <field name="system_message">Eres un médico de urgencias que proporciona evaluaciones médicas rápidas y concisas. Tus respuestas son breves, directas y enfocadas en los puntos más importantes. Siempre respondes en español.</field>
+            <field name="description">Evaluación médica rápida y concisa para casos de urgencia o consultas rápidas.</field>
+        </record>
+
+        <!-- Pediatric Prompt -->
+        <record id="ai_prompt_pediatric" model="ai.prompt">
+            <field name="name">Pediatric Consultation</field>
+            <field name="sequence">30</field>
+            <field name="is_default" eval="False"/>
+            <field name="max_tokens">700</field>
+            <field name="temperature">0.6</field>
+            <field name="prompt_template">Analiza el siguiente caso pediátrico:
+
+Paciente pediátrico: {patient_info}
+Especialidad: {specialty}
+Condición/Síntomas: {description}
+
+Proporciona un análisis considerando:
+1. Evaluación pediátrica específica
+2. Diagnósticos diferenciales comunes en pediatría
+3. Plan de manejo apropiado para la edad
+4. Recomendaciones para los padres/cuidadores</field>
+            <field name="system_message">Eres un pediatra experimentado que proporciona análisis médicos especializados en pacientes pediátricos. Consideras factores específicos de la edad, desarrollo y particularidades de la medicina infantil. Siempre respondes en español de forma clara y comprensible para los padres.</field>
+            <field name="description">Prompt especializado para consultas pediátricas con consideraciones específicas de edad.</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_form_ia_config" model="ir.ui.view">
+            <field name="name">view.form.ia.config</field>
+            <field name="model">ia.config</field>
+            <field name="arch" type="xml">
+                <form string="Ia Config">
+                    <sheet>
+                        <group>
+                            <group string="General">
+                                <field name="name"/>
+                            </group>
+                            <group string="Other">
+                                <field name="api_key"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_list_ia_config" model="ir.ui.view">
+            <field name="name">view.tree.ia.config</field>
+            <field name="model">ia.config</field>
+            <field name="arch" type="xml">
+                <list string="bed"  open_form_view="True">
+                    <field name="name" optional="show" />
+                </list>
+            </field>
+        </record>
+
+        <record id="action_ia_config" model="ir.actions.act_window">
+            <field name="name">bed</field>
+            <field name="res_model">ia.config</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_list_ia_config"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create a new IA Config!
+                </p></field>
+        </record>
+
+    </data>
+</odoo>

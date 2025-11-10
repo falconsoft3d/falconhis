@@ -7,7 +7,8 @@ class ProductTemplate(models.Model):
 
     medical_type = fields.Selection(
         [('M', 'Medication'),
-         ('E', 'Diagnostic_test'),
+         ('E', 'Test'),
+         ('N', 'Measurement'),
          ('P', 'Procedure'),
          ('T', 'Treatment'),
          ('C', 'Consultation'),

@@ -7,25 +7,27 @@
       <field name="inherit_id" ref="base.view_partner_form"/>
       <field name='type'>form</field>
       <field name='arch' type='xml'>
-            <field name="email" position="before">
-                       <field name="type_of_gender" />
+           <div name="button_box" position="inside">
+                    <button name="action_view_medical_records" type="object" class="oe_stat_button" icon="fa-folder-o">
+                                <field name="medical_record_count"
+                                       widget="statinfo"
+                                       string="Medical Records"/>
+                    </button>
+                    <button name="action_view_medical_actions" type="object" class="oe_stat_button" icon="fa-stethoscope">
+                                <field name="medical_action_count"
+                                       widget="statinfo"
+                                       string="Medical Actions"/>
+                    </button>
+                </div>
+
+            <field name="function" position="before">
+                  <field name="patient" />
+                  <field name="type_of_gender" />
+                  <field name="room_id" />
             </field>
       </field>
     </record>
 
-
-
-    <record model="ir.ui.view" id="view_res_partner_sis_tree_view">
-        <field name="name">Partners</field>
-        <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_partner_tree"/>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <field name="email" position="before">
-                   <field name="type_of_gender" />
-            </field>
-        </field>
-    </record>
 
 
 </odoo>
