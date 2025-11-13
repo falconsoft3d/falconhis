@@ -25,5 +25,13 @@
             <field name="padding">5</field>
             <field name="company_id" eval="False"/>
         </record>
+        <!-- his.mass.billing -->
+        <record id="seq_his_mass_billing" model="ir.sequence">
+            <field name="name">HIS Mass Billing</field>
+            <field name="code">his.mass.billing</field>
+            <field name="prefix">HMB/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
     </data>
 </odoo>

@@ -45,7 +45,7 @@ class MedicalAction(models.Model):
         'ir.attachment', string='Attachments',
         help='Attach relevant files or documents related to this medical action.')
 
-    value = fields.Char('Value', help='Value associated with the medical action.')
+    value = fields.Float('Value', help='Value associated with the medical action.')
 
     quantity = fields.Float('Quantity', default=1.0, help='Quantity of the medical product.')
     price_unit = fields.Float('Unit Price', help='Unit price of the medical product.')
@@ -63,6 +63,10 @@ class MedicalAction(models.Model):
     currency_id = fields.Many2one(
         'res.currency', string='Currency',
         default=lambda self: self.env.company.currency_id, required=True)
+
+    his_mass_billing_id = fields.Many2one(
+        'his.mass.billing', string='Mass Billing', ondelete='set null',
+        help='The mass billing associated with this medical action.')
 
     @api.model
     def create(self, vals_list):

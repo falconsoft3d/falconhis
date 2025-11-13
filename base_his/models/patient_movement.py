@@ -46,6 +46,10 @@ class PatientMovement(models.Model):
         'his.room', string='To Room', ondelete='set null',
         help='The room to which the patient is moving.')
 
+    bed_id = fields.Many2one(
+        'his.bed', string='Bed', ondelete='set null',
+        help='The bed to which the patient is assigned.')
+
     @api.model
     def create(self, vals_list):
         defaults = self.default_get(['requisition_type', 'company_id'])
@@ -59,8 +63,11 @@ class PatientMovement(models.Model):
             record.state = 'completed'
             if record.type_of_movement in ['admission', 'transfer']:
                 record.res_partner_id.room_id = record.to_his_room_id
+                if record.bed_id:
+                    record.bed_id.res_partner_id = record.res_partner_id
             elif record.type_of_movement == 'discharge':
                 record.res_partner_id.room_id = False
+                record.res_partner_id.bed_id = False
 
     def action_cancel_movement(self):
         for record in self:

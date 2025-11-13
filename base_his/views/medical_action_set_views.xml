@@ -17,6 +17,11 @@
             <field name="model">medical.action.set</field>
             <field name="arch" type="xml">
                 <form string="Medical Action Set">
+                    <header>
+                        <button name="create_data" string="Create Data"
+                           type="object"
+                           class="oe_highlight"/>
+                    </header>
                     <sheet>
                         <div class="oe_title">
                             <h1>
@@ -25,6 +30,7 @@
                         </div>
                         <group>
                             <group>
+                                <field name="partner_id" options="{'no_create': True}"/>
                             </group>
                             <group>
                                 <field name="company_id" groups="base.group_multi_company"/>
@@ -38,9 +44,10 @@
                             <page name="lines" string="Lines">
                                 <field name="line_ids" widget="one2many_list">
                                     <list editable="bottom">
-                                        <field name="medical_type"/>
-                                        <field name="product_id" options="{'no_create': True}"
+                                        <field name="medical_type" optional="show"/>
+                                        <field name="product_id" options="{'no_create': True}" optional="show"
                                                domain="[('medical_type', '=', medical_type)]"/>
+                                        <field name="value" optional="show"/>
                                     </list>
                                 </field>
                             </page>

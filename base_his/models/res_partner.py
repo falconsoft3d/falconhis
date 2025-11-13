@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # Part of FalconHis. See LICENSE file for full copyright and licensing details.
 from odoo import api, fields, models
+from datetime import date
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
@@ -18,8 +19,44 @@ class ResPartner(models.Model):
     medical_record_count = fields.Integer('Medical Records', compute="_get_medical_record_count")
 
     room_id = fields.Many2one(
-        'his.room', string='To Room', ondelete='set null',
+        'his.room', string='Room', ondelete='set null',
         help='The room to which the patient is moving.')
+    bed_id = fields.Many2one(
+        'his.bed', string='Bed', ondelete='set null',
+        help='The bed to which the patient is assigned.')
+
+    # fecha de nacimiento
+    birth_date = fields.Date('Birth Date')
+    blood_type = fields.Selection([
+        ('A+', 'A+'),
+        ('A-', 'A-'),
+        ('B+', 'B+'),
+        ('B-', 'B-'),
+        ('AB+', 'AB+'),
+        ('AB-', 'AB-'),
+        ('O+', 'O+'),
+        ('O-', 'O-')
+    ], 'Blood Type')
+
+    # enfermedasdes que padece como etiquetas
+    disease_tags = fields.Many2many(
+        'his.disease', string='Disease Tags',
+        help='Tags to categorize diseases the patient has.')
+
+    age = fields.Integer(
+        'Age',
+        help='The age of the patient calculated from the birth date.')
+
+    @api.onchange('birth_date')
+    def _onchage_birth_date(self):
+        for record in self:
+            if record.birth_date:
+                today = date.today()
+                birth_date = record.birth_date
+                age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
+                record.age = age
+            else:
+                record.age = 0
 
     @api.depends('medical_record_ids')
     def _get_medical_record_count(self):

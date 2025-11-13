@@ -11,7 +11,7 @@ Allows users to configure
     """,
     'category': 'Accounting/Accounting',
     'website': 'https://www.falconhis.com',
-    'depends': ['base','base_setup','mail','product'],
+    'depends': ['base','base_setup','mail','product','stock','account'],
     'category': 'Extra Tools',
     'auto_install': False,
     'data': [
@@ -38,6 +38,7 @@ Allows users to configure
         'views/patient_movement_views.xml',
         'views/ia_config_views.xml',
         'views/ai_prompt_views.xml',
+        'views/his_mass_billing_views.xml',
         'views/menu_views.xml',
     ],
     'license': 'LGPL-3',

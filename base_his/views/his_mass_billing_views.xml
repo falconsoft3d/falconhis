@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_form_his_mass_billing" model="ir.ui.view">
+            <field name="name">view.form.his.mass.billing</field>
+            <field name="model">his.mass.billing</field>
+            <field name="arch" type="xml">
+                <form string="Mass Billing">
+                    <header>
+
+                        <button name="action_load_data" string="Load Data"
+                           type="object" invisible="state != 'draft'"
+                           class="oe_highlight"/>
+
+
+                        <button name="action_create_invoice" string="Create Invoices"
+                           type="object" invisible="state != 'loaded'"
+                           class="oe_highlight"/>
+
+
+                        <button name="action_to_loaded" string="To Loaded"
+                           type="object" invisible="state != 'invoiced'"
+                           class="oe_highlight"/>
+
+
+                        <button name="action_set_draft" string="To Draft"
+                           type="object" invisible="state != 'loaded'"/>
+
+
+
+
+
+
+
+                        <field name="state" widget="statusbar"/>
+
+                    </header>
+
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="General">
+                                <field name="res_partner_id" options="{'no_create': True}" readonly="state not in ['draft','started']"/>
+                                <field name="account_move_id"  readonly="1"/>
+
+                            </group>
+                            <group string="Other">
+                                <field name="creation_date"  readonly="1"/>
+                                <field name="company_id" readonly="1"/>
+                                <field name="user_id" readonly="1"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Lines">
+                                <field name="line_ids" widget="one2many_list">
+                                    <list editable="bottom">
+                                        <field name="product_id" options="{'no_create': True}" optional="show"/>
+                                        <field name="origin" optional="show"/>
+                                        <field name="quantity" optional="show" sum="sum"/>
+                                        <field name="unit_price" optional="show"/>
+                                        <field name="amount" optional="show" sum="sum"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_list_his_mass_billing" model="ir.ui.view">
+            <field name="name">view.tree.his.mass.billing</field>
+            <field name="model">his.mass.billing</field>
+            <field name="arch" type="xml">
+                <list string="Mass Billing"
+                      decoration-danger="state == 'draft'"
+                      open_form_view="True">
+                    <field name="name" optional="show" />
+                    <field name="res_partner_id"  optional="show" />
+                    <field name="creation_date"  optional="show" />
+                    <field name="user_id"  optional="show" />
+                    <field name="company_id"  optional="show" />
+                    <field name="user_id"  optional="show" />
+                    <field name="account_move_id"  optional="show" />
+                    <field name="state"  optional="show" />
+                </list>
+            </field>
+        </record>
+
+
+
+        <record id="action_his_mass_billing" model="ir.actions.act_window">
+            <field name="name">Mass Billing</field>
+            <field name="res_model">his.mass.billing</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_list_his_mass_billing"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create a new Mass Billing!
+                </p></field>
+        </record>
+
+    </data>
+</odoo>

@@ -17,6 +17,7 @@ from . import medical_action_set
 from . import patient_movement
 from . import ia_config
 from . import ai_prompt
+from . import his_mass_billing
 
 # inherit
 from . import product_template

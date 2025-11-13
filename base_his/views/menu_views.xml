@@ -6,6 +6,58 @@
                   web_icon="base_his,static/description/icon.png"
                   sequence="55">
 
+            <menuitem id="menu_home"
+                  sequence="10"
+                  name="Home">
+
+                <menuitem id="menu_medical_records"
+                      name="Medical Records"
+                      action="base_his.action_medical_record"
+                      sequence="10"/>
+
+                <menuitem id="menu_medical_actions"
+                        name="Medical Actions"
+                        action="base_his.action_medical_action"
+                        sequence="20"/>
+
+                <menuitem id="menu_medical_action_sets"
+                        name="Medical Action Sets"
+                        action="base_his.action_medical_action_set"
+                        sequence="25"/>
+
+                <menuitem id="menu_patient_movements"
+                        name="Patient Movements"
+                        action="base_his.action_patient_movement"
+                        sequence="30"/>
+
+            </menuitem>
+
+             <menuitem id="menu_calendar"
+                  sequence="20"
+                  name="Calendar">
+
+                 <menuitem id="menu_medical_actions_planning"
+                        name="Planning Calendar"
+                        action="base_his.action_medical_action_calendar_planning"
+                        sequence="21"/>
+
+                 <menuitem id="menu_medical_actions_execution"
+                        name="Execution Calendar"
+                        action="base_his.action_medical_action_calendar_execution"
+                        sequence="22"/>
+             </menuitem>
+
+            <menuitem id="menu_management"
+                  sequence="30"
+                  name="Management">
+
+                 <menuitem id="menu_his_mass_billing"
+                        name="Mass Billing"
+                        action="base_his.action_his_mass_billing"
+                        sequence="21"/>
+             </menuitem>
+
+
             <menuitem id="menu_his_config"
                   sequence="99"
                   name="Configuration">
@@ -61,50 +113,6 @@
                         sequence="95"/>
 
             </menuitem>
-
-
-            <menuitem id="menu_home"
-                  sequence="10"
-                  name="Home">
-
-                <menuitem id="menu_medical_records"
-                      name="Medical Records"
-                      action="base_his.action_medical_record"
-                      sequence="10"/>
-
-                <menuitem id="menu_medical_actions"
-                        name="Medical Actions"
-                        action="base_his.action_medical_action"
-                        sequence="20"/>
-
-                <menuitem id="menu_medical_action_sets"
-                        name="Medical Action Sets"
-                        action="base_his.action_medical_action_set"
-                        sequence="25"/>
-
-                <menuitem id="menu_patient_movements"
-                        name="Patient Movements"
-                        action="base_his.action_patient_movement"
-                        sequence="30"/>
-
-            </menuitem>
-
-             <menuitem id="menu_calendar"
-                  sequence="20"
-                  name="Calendar">
-
-                 <menuitem id="menu_medical_actions_planning"
-                        name="Planning Calendar"
-                        action="base_his.action_medical_action_calendar_planning"
-                        sequence="21"/>
-
-                 <menuitem id="menu_medical_actions_execution"
-                        name="Execution Calendar"
-                        action="base_his.action_medical_action_calendar_execution"
-                        sequence="22"/>
-
-
-             </menuitem>
 
         </menuitem>
     </data>

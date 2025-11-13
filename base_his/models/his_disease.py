@@ -9,10 +9,10 @@ class HisDisease(models.Model):
     _name = 'his.disease'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    code = fields.Char('Code', translate=True)
-    name = fields.Char('Name', translate=True)
+    code = fields.Char('Code')
+    name = fields.Char('Name')
     origin = fields.Char('Origin')
-    description = fields.Text('Description', translate=True)
+    description = fields.Text('Description')
 
 
     def create_description(self):

@@ -14,3 +14,5 @@ access_medical_action_set_line,medical.action.set.line,model_medical_action_set_
 access_patient_movement,patient.movement,model_patient_movement,,1,1,1,1
 access_ia_config,ia.config,model_ia_config,,1,1,1,1
 access_ai_prompt,ai.prompt,model_ai_prompt,,1,1,1,1
+access_his_mass_billing,his.mass.billing,model_his_mass_billing,,1,1,1,1
+access_his_mass_billing_line,his.mass.billing.line,model_his_mass_billing_line,,1,1,1,1

@@ -32,6 +32,7 @@
                                 <field name="type_of_movement" readonly="state not in ['draft']"/>
                                 <field name="from_his_room_id" readonly="state not in ['draft']"/>
                                 <field name="to_his_room_id" readonly="state not in ['draft']"/>
+                                <field name="bed_id" readonly="state not in ['draft']"/>
                             </group>
                             <group string="Other">
                                 <field name="creation_date" readonly="state not in ['draft']" />
@@ -56,9 +57,10 @@
                       open_form_view="True">
                     <field name="name" optional="show" />
                     <field name="res_partner_id" optional="show"/>
-                    <field name="type_of_movement" readonly="state not in ['draft']"/>
-                    <field name="from_his_room_id" readonly="state not in ['draft']"/>
-                    <field name="to_his_room_id" readonly="state not in ['draft']"/>
+                    <field name="type_of_movement" optional="show"/>
+                    <field name="from_his_room_id" optional="show"/>
+                    <field name="bed_id" optional="show"/>
+                    <field name="to_his_room_id" optional="show"/>
                     <field name="creation_date" optional="show"/>
                     <field name="user_id" optional="show"/>
                     <field name="company_id" optional="show"/>
