@@ -12,6 +12,7 @@
                                 <field name="name"/>
                             </group>
                             <group string="Other">
+                                <field name="company_id"/>
                             </group>
                         </group>
                     </sheet>
@@ -27,6 +28,7 @@
             <field name="arch" type="xml">
                 <list string="Medical Specialty"  open_form_view="True">
                     <field name="name" optional="show" />
+                    <field name="company_id" optional="show"/>
                 </list>
             </field>
         </record>
