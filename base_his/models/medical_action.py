@@ -47,6 +47,10 @@ class MedicalAction(models.Model):
 
     value = fields.Char('Value', help='Value associated with the medical action.')
 
+    quantity = fields.Float('Quantity', default=1.0, help='Quantity of the medical product.')
+    price_unit = fields.Float('Unit Price', help='Unit price of the medical product.')
+    amount = fields.Float('Amount', help='Monetary amount associated with this medical action.', compute='_compute_amount', store=True)
+
     creation_date = fields.Datetime(
         'Creation Date', default=fields.Datetime.now, required=True)
     planning_date = fields.Datetime(
@@ -56,6 +60,9 @@ class MedicalAction(models.Model):
 
     user_id = fields.Many2one('res.users', string='User', default=lambda self: self.env.user, required=True)
     exec_user_id = fields.Many2one('res.users', string='User Exec', default=lambda self: self.env.user, required=True)
+    currency_id = fields.Many2one(
+        'res.currency', string='Currency',
+        default=lambda self: self.env.company.currency_id, required=True)
 
     @api.model
     def create(self, vals_list):
@@ -69,6 +76,9 @@ class MedicalAction(models.Model):
         for record in self:
             record.exec_user_id = self.env.user
             record.state = 'completed'
+            if not record.planning_date:
+                record.planning_date = fields.Datetime.now()
+
             record.execution_date = fields.Datetime.now()
 
     def action_set_draft(self):
@@ -78,3 +88,13 @@ class MedicalAction(models.Model):
     def action_cancel(self):
         for record in self:
             record.state = 'cancelled'
+
+    @api.onchange('product_id','price_unit','quantity')
+    def _onchange_product_id(self):
+        for record in self:
+            record.price_unit = record.product_id.list_price
+
+    @api.depends('price_unit','quantity')
+    def _compute_amount(self):
+        for record in self:
+            record.amount = record.price_unit * record.quantity

@@ -6,18 +6,28 @@
             <field name="model">his.disease</field>
             <field name="arch" type="xml">
                 <form string="Disease">
+                     <header>
+                        <button name="create_description" 
+                                string="Generate Description with AI"
+                                type="object"
+                                class="oe_highlight"
+                                icon="fa-magic"
+                                help="Generate disease description using AI"/>
+                    </header>
                     <sheet>
                         <div class="oe_title">
                             <h1>
-                                <field name="code"/>
+                                <field name="name" placeholder="Disease Name"/>
                             </h1>
                         </div>
                         <group>
                             <group string="General">
-                                <field name="name"/>
+                                <field name="code"/>
                             </group>
                             <group string="Other">
+                                <field name="origin"/>
                             </group>
+                            <field name="description" nolabel="1" placeholder="Disease description will be generated here..."/>
                         </group>
                     </sheet>
                     <chatter/>
