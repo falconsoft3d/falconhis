@@ -377,42 +377,42 @@ msgstr "Crear Datos"
 #. module: base_his
 #: model_terms:ir.ui.view,arch_db:base_his.view_form_his_mass_billing
 msgid "Create Invoices"
-msgstr ""
+msgstr "Crear Factura"
 
 #. module: base_his
 #: model_terms:ir.actions.act_window,help:base_his.action_ai_prompt
 msgid "Create a new AI Prompt Template!"
-msgstr ""
+msgstr "Crear una nueva Plantilla de Prompt de IA!"
 
 #. module: base_his
 #: model_terms:ir.actions.act_window,help:base_his.action_his_disease
 msgid "Create a new Disease!"
-msgstr ""
+msgstr "Crear una nueva Enfermedad!"
 
 #. module: base_his
 #: model_terms:ir.actions.act_window,help:base_his.action_his_hospital
 msgid "Create a new Hospital!"
-msgstr ""
+msgstr "Crear un nuevo Hospital!"
 
 #. module: base_his
 #: model_terms:ir.actions.act_window,help:base_his.action_ia_config
 msgid "Create a new IA Config!"
-msgstr ""
+msgstr "Crear una nueva Configuración de IA!"
 
 #. module: base_his
 #: model_terms:ir.actions.act_window,help:base_his.action_his_mass_billing
 msgid "Create a new Mass Billing!"
-msgstr ""
+msgstr "Crear una nueva Facturación Masiva!"
 
 #. module: base_his
 #: model_terms:ir.actions.act_window,help:base_his.action_type_measurement
 msgid "Create a new Measurement!"
-msgstr ""
+msgstr "Crear una nueva Medición!"
 
 #. module: base_his
 #: model_terms:ir.actions.act_window,help:base_his.action_medical_action_set
 msgid "Create a new Medical Action Set!"
-msgstr ""
+msgstr "Crear un nuevo Conjunto de Acciones Médicas!"
 
 #. module: base_his
 #: model_terms:ir.actions.act_window,help:base_his.action_medical_action
@@ -437,7 +437,7 @@ msgstr ""
 #. module: base_his
 #: model_terms:ir.actions.act_window,help:base_his.action_his_bed
 msgid "Create a new bed!"
-msgstr ""
+msgstr "Crear una nueva cama!"
 
 #. module: base_his
 #: model_terms:ir.actions.act_window,help:base_his.action_his_building
@@ -447,12 +447,12 @@ msgstr ""
 #. module: base_his
 #: model_terms:ir.actions.act_window,help:base_his.action_his_floor
 msgid "Create a new floor!"
-msgstr ""
+msgstr "Crear un nuevo piso!"
 
 #. module: base_his
 #: model_terms:ir.actions.act_window,help:base_his.action_his_room
 msgid "Create a new room!"
-msgstr ""
+msgstr "Crear una nueva habitación!"
 
 #. module: base_his
 #: model:ir.model.fields,field_description:base_his.field_ai_prompt__create_uid
@@ -473,7 +473,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:base_his.field_patient_movement__create_uid
 #: model:ir.model.fields,field_description:base_his.field_type_measurement__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: base_his
 #: model:ir.model.fields,field_description:base_his.field_ai_prompt__create_date
@@ -494,7 +494,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:base_his.field_patient_movement__create_date
 #: model:ir.model.fields,field_description:base_his.field_type_measurement__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado el"
 
 #. module: base_his
 #: model:ir.model.fields,field_description:base_his.field_his_mass_billing__creation_date
@@ -513,7 +513,7 @@ msgstr "Moneda"
 #. module: base_his
 #: model:ir.model.fields,help:base_his.field_medical_action__execution_date
 msgid "Date and time when the medical action was executed."
-msgstr ""
+msgstr "Fecha y hora en que se ejecutó la acción médica."
 
 #. module: base_his
 #: model:ir.model.fields,field_description:base_his.field_ai_prompt__is_default
@@ -1132,7 +1132,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:base_his.view_form_his_mass_billing
 #: model_terms:ir.ui.view,arch_db:base_his.view_form_medical_action_set
 msgid "Lines"
-msgstr ""
+msgstr "Líneas"
 
 #. module: base_his
 #: model:ir.model.fields,help:base_his.field_his_mass_billing__line_ids
