@@ -4,7 +4,7 @@
         
         <!-- Default Medical Diagnosis Prompt -->
         <record id="ai_prompt_default_medical_diagnosis" model="ai.prompt">
-            <field name="name">Standard Medical Diagnosis</field>
+            <field name="name">Diagnóstico médico estándar</field>
             <field name="sequence">10</field>
             <field name="is_default" eval="True"/>
             <field name="max_tokens">800</field>
@@ -34,7 +34,7 @@ Responde SIEMPRE en español y mantén el formato exacto.</field>
 
         <!-- Quick Assessment Prompt -->
         <record id="ai_prompt_quick_assessment" model="ai.prompt">
-            <field name="name">Quick Medical Assessment</field>
+            <field name="name">Evaluación médica rápida</field>
             <field name="sequence">20</field>
             <field name="is_default" eval="False"/>
             <field name="max_tokens">400</field>
@@ -52,7 +52,7 @@ Proporciona una evaluación breve y concisa con los puntos clave.</field>
 
         <!-- Pediatric Prompt -->
         <record id="ai_prompt_pediatric" model="ai.prompt">
-            <field name="name">Pediatric Consultation</field>
+            <field name="name">Consulta pediátrica</field>
             <field name="sequence">30</field>
             <field name="is_default" eval="False"/>
             <field name="max_tokens">700</field>

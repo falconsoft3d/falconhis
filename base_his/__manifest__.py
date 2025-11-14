@@ -20,6 +20,7 @@ Allows users to configure
         'data/his_disease_data.xml',
         'data/ir_sequence.xml',
         'data/ai_prompt_data.xml',
+        'data/data.xml',
         # Views inheritance
         'views/product_template_views.xml',
         'views/res_partner_views.xml',
