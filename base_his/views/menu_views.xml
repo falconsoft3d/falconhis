@@ -6,9 +6,6 @@
                   web_icon="base_his,static/description/icon.png"
                   sequence="55">
 
-
-
-
             <menuitem id="menu_home"
                   sequence="10"
                   name="Home">
@@ -54,11 +51,12 @@
                   sequence="30"
                   name="Management">
 
-                 <menuitem id="menu_mass_billing"
+                 <menuitem id="menu_his_mass_billing"
                         name="Mass Billing"
                         action="base_his.action_his_mass_billing"
                         sequence="21"/>
              </menuitem>
+
 
             <menuitem id="menu_his_config"
                   sequence="99"

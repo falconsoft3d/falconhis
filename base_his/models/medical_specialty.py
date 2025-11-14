@@ -7,4 +7,4 @@ class MedicalSpecialty(models.Model):
     _name = 'medical.specialty'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    name = fields.Char('Name')
+    name = fields.Char('Name', translate=True)

@@ -9,5 +9,5 @@ class TypeMeasurement(models.Model):
     _name = 'type.measurement'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    name = fields.Char('Name')
+    name = fields.Char('Name', translate=True)
     vital_sign = fields.Boolean('Vital Sign')

@@ -7,5 +7,5 @@ class IaConfig(models.Model):
     _name = 'ia.config'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    name = fields.Char('Name')
+    name = fields.Char('Name', translate=True)
     api_key = fields.Char('API Key', required=True)
