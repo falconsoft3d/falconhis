@@ -7,6 +7,6 @@ class HisRoom(models.Model):
     _name = 'his.room'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    name = fields.Char('Name', translate=True)
+    name = fields.Char('Name')
     his_floor_id = fields.Many2one(
         'his.floor', string='Floor', required=True, ondelete='cascade')

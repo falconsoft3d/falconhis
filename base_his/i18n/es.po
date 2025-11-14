@@ -1173,7 +1173,7 @@ msgstr "Facturación Masiva"
 #. module: base_his
 #: model:ir.model.fields,field_description:base_his.field_ai_prompt__max_tokens
 msgid "Max Tokens"
-msgstr ""
+msgstr "Máximos de Tokens"
 
 #. module: base_his
 #: model:ir.model.fields,help:base_his.field_ai_prompt__max_tokens
@@ -1783,7 +1783,7 @@ msgstr "Servicio/Producto"
 #. module: base_his
 #: model_terms:ir.ui.view,arch_db:base_his.view_form_ai_prompt
 msgid "Set as Default"
-msgstr ""
+msgstr "Configurar como Predeterminado"
 
 #. module: base_his
 #: model:ai.prompt,name:base_his.ai_prompt_default_medical_diagnosis
@@ -1835,7 +1835,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:base_his.field_ai_prompt__system_message
 #: model_terms:ir.ui.view,arch_db:base_his.view_form_ai_prompt
 msgid "System Message"
-msgstr ""
+msgstr "Mensaje del Sistema"
 
 #. module: base_his
 #: model:ir.model.fields,help:base_his.field_ai_prompt__system_message
@@ -1851,7 +1851,7 @@ msgstr ""
 #. module: base_his
 #: model:ir.model.fields,field_description:base_his.field_ai_prompt__temperature
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatura"
 
 #. module: base_his
 #: model:ir.model.fields,help:base_his.field_ai_prompt__prompt_template

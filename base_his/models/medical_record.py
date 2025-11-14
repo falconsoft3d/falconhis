@@ -10,11 +10,6 @@ class MedicalRecord(models.Model):
     name = fields.Char('Name', default=lambda self: _('New'), readonly=True, copy=False)
     res_partner_id = fields.Many2one(
         'res.partner', string='Patient', required=True, ondelete='cascade')
-
-    product_id = fields.Many2one(
-        'product.product', string='Service/Product', ondelete='set null',
-        help='The medical service or product associated with this record.')
-
     creation_date = fields.Datetime(
         'Creation Date', default=fields.Datetime.now, required=True)
     user_id = fields.Many2one(
@@ -23,14 +18,13 @@ class MedicalRecord(models.Model):
     ai_recommendation = fields.Text(
         'AI Recommendation', help='AI-generated recommendations for this medical record.')
 
-    start_date = fields.Datetime('Start Date')
-    end_date = fields.Datetime('End Date')
+
+    medical_specialty_id = fields.Many2one(
+        'medical.specialty', string='Medical Specialty', ondelete='set null')
 
     state = fields.Selection([
         ('draft', 'Draft'),
-        ('started', 'Started'),
-        ('finished', 'Finished'),
-        ('cancelled', 'Cancelled')
+        ('closed', 'Closed'),
     ], string='State', default='draft', tracking=True)
 
     company_id = fields.Many2one(
@@ -44,29 +38,6 @@ class MedicalRecord(models.Model):
     ai_prompt_id = fields.Many2one(
         'ai.prompt', string='AI Prompt Template', ondelete='set null',
         help='The AI prompt template to use for generating recommendations.')
-
-    his_mass_billing_id = fields.Many2one(
-        'his.mass.billing', string='Mass Billing', ondelete='set null',
-        help='The mass billing associated with this medical action.')
-
-    quantity = fields.Float('Quantity', default=1.0, help='Quantity of the medical product.')
-    price_unit = fields.Float('Unit Price', help='Unit price of the medical product.')
-    amount = fields.Float('Amount', help='Monetary amount associated with this medical action.',
-                          compute='_compute_amount', store=True)
-
-    currency_id = fields.Many2one(
-        'res.currency', string='Currency', required=True,
-        default=lambda self: self.env.company.currency_id)
-
-    @api.depends('quantity', 'price_unit')
-    def _compute_amount(self):
-        for record in self:
-            record.amount = record.quantity * record.price_unit
-
-    @api.onchange('product_id', 'price_unit', 'quantity')
-    def _onchange_product_id(self):
-        for record in self:
-            record.price_unit = record.product_id.list_price
 
 
     def action_open_prompt_wizard(self):
@@ -167,15 +138,9 @@ class MedicalRecord(models.Model):
                     'medical.record')
         return super().create(vals_list)
 
-    def action_to_start(self):
+    def action_close(self):
         for record in self:
-            record.start_date = fields.Datetime.now()
-            record.state = 'started'
-
-    def action_to_finish(self):
-        for record in self:
-            record.end_date = fields.Datetime.now()
-            record.state = 'finished'
+            record.state = 'closed'
 
     def action_set_draft(self):
         for record in self:

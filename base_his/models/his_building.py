@@ -7,6 +7,6 @@ class HisBuilding(models.Model):
     _name = 'his.building'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    name = fields.Char('Name', translate=True)
+    name = fields.Char('Name')
     hospital_id = fields.Many2one(
         'his.hospital', string='Hospital', required=True, ondelete='cascade')

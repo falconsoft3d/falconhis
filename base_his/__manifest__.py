@@ -11,7 +11,7 @@ Allows users to configure
     """,
     'category': 'Accounting/Accounting',
     'website': 'https://www.falconhis.com',
-    'depends': ['base','base_setup','mail','product','stock','account'],
+    'depends': ['base','base_setup','mail','product','account'],
     'category': 'Extra Tools',
     'auto_install': False,
     'data': [

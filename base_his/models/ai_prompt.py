@@ -8,7 +8,7 @@ class AiPrompt(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'sequence, id'
 
-    name = fields.Char('Name', required=True, translate=True, tracking=True)
+    name = fields.Char('Name', required=True, tracking=True)
     sequence = fields.Integer('Sequence', default=10)
     active = fields.Boolean('Active', default=True, tracking=True)
     

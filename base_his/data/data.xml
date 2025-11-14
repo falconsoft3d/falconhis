@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- his.hospital -->
+        <record id="DATA01" model="his.hospital">
+           <field name="name">HOSPITAL</field>
+       </record>
+        <!-- his.building -->
+        <record id="DATA02" model="his.building">
+           <field name="name">EDIFICIO A</field>
+           <field name="hospital_id" ref="DATA01"/>
+         </record>
+        <!-- his.floor -->
+        <record id="DATA03" model="his.floor">
+              <field name="name">PISO 1</field>
+              <field name="his_building_id" ref="DATA02"/>
+        </record>
+        <!-- his.room -->
+        <record id="DATA04" model="his.room">
+                <field name="name">SALA 1</field>
+                <field name="his_floor_id" ref="DATA03"/>
+        </record>
+        <!-- his.bed -->
+        <record id="DATA05" model="his.bed">
+                <field name="name">CAMA A</field>
+                <field name="his_room_id" ref="DATA04"/>
+        </record>
+
+
+        <!-- product.product -->
+        <record id="P1" model="product.product">
+                <field name="name">OXIGENO</field>
+                <field name="medical_type">N</field>
+                <field name="type">service</field>
+        </record>
+        <record id="P2" model="product.product">
+                <field name="name">PESO</field>
+                <field name="medical_type">N</field>
+                <field name="type">service</field>
+        </record>
+        <record id="P3" model="product.product">
+                <field name="name">PRESION</field>
+                <field name="medical_type">N</field>
+                <field name="type">service</field>
+        </record>
+        <record id="P5" model="product.product">
+                <field name="name">TEMPERATURA</field>
+                <field name="medical_type">N</field>
+                <field name="type">service</field>
+        </record>
+    </data>
+</odoo>

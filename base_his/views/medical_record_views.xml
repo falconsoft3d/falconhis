@@ -7,16 +7,13 @@
             <field name="arch" type="xml">
                 <form string="Medical Record">
                     <header>
-                        <button name="action_to_start" string="To Start"
+                        <button name="action_close" string="To Close"
                            type="object" invisible="state != 'draft'"
                            class="oe_highlight"/>
 
-                        <button name="action_to_finish" string="To Finish"
-                           type="object" invisible="state != 'started'"
-                           class="oe_highlight"/>
-
                         <button name="action_set_draft" string="To Draft"
-                           type="object" invisible="state == 'draft'"/>
+                           type="object" invisible="state != 'closed'"
+                           class="oe_highlight"/>
 
                         <field name="state" widget="statusbar"/>
 
@@ -30,25 +27,26 @@
                         </div>
                         <group>
                             <group string="General">
-                                <field name="res_partner_id" options="{'no_create': True}" readonly="state not in ['draft','started']"/>
-                                <field name="product_id" options="{'no_create': True}" readonly="state not in ['draft','started']"/>
-                                <field name="his_disease_id" options="{'no_create': True}" readonly="state not in ['draft','started']"/>
+                                <field name="res_partner_id" options="{'no_create': True}" readonly="state in ['closed']"/>
+                                <field name="medical_specialty_id" options="{'no_create': True}" readonly="state in ['closed']"/>
+                                <field name="his_disease_id" options="{'no_create': True}" readonly="state in ['closed']"/>
                             </group>
                             <group string="Other">
-                                <field name="start_date" readonly="1"/>
-                                <field name="end_date" readonly="1"/>
+                                <field name="creation_date" readonly="state in ['closed']"/>
+                                <field name="user_id" readonly="state in ['closed']"/>
+                                <field name="company_id" readonly="state in ['closed']"/>
                             </group>
                         </group>
 
                         <notebook>
                             <page string="Clinical Notes">
-                                <field name="description" readonly="state not in ['draft','started']"/>
+                                <field name="description" readonly="state in ['closed']"/>
                             </page>
                             <page string="IA">
                                 <group>
                                     <group>
                                         <field name="ai_prompt_id" options="{'no_create': True}" 
-                                               readonly="state not in ['draft','started']"/>
+                                               readonly="state in ['closed']"/>
                                     </group>
                                     <group>
                                         <button name="action_generate_ai_recommendation" string="Generate with Current Prompt"
@@ -59,30 +57,8 @@
                                     </group>
                                 </group>
                                 <group>
-                                    <field name="ai_recommendation" readonly="1" widget="text" />
+                                    <field name="ai_recommendation" readonly="1" widget="text"/>
                                 </group>
-                            </page>
-
-
-                            <page string="Accounting">
-                                  <group>
-                                      <field name="quantity" readonly="state not in ['draft','started']"/>
-                                      <field name="price_unit" readonly="state not in ['draft','started']"/>
-                                      <field name="amount" readonly="state not in ['draft','started']"/>
-                                  </group>
-                                  <group>
-                                  </group>
-                            </page>
-
-                            <page string="Additional Information">
-                                  <group>
-                                      <field name="creation_date" readonly="state not in ['draft','started']"/>
-                                      <field name="user_id" readonly="state not in ['draft','started']"/>
-                                      <field name="company_id" readonly="state not in ['draft','started']"/>
-                                  </group>
-                                  <group>
-                                        <field name="his_mass_billing_id" readonly="1"/>
-                                    </group>
                             </page>
                         </notebook>
 
@@ -97,20 +73,15 @@
             <field name="name">view.tree.medical.record</field>
             <field name="model">medical.record</field>
             <field name="arch" type="xml">
-                <list string="Medical Records"
-                      decoration-danger="state == 'draft'"
-                      open_form_view="True">
+                <list string="Medical Record"  open_form_view="True">
                     <field name="name" optional="show" />
                     <field name="res_partner_id"  optional="show" />
-                    <field name="product_id"  optional="show" />
+                    <field name="medical_specialty_id"  optional="show" />
                     <field name="his_disease_id"  optional="show" />
                     <field name="creation_date"  optional="show" />
-                    <field name="start_date" optional="show"/>
-                    <field name="end_date"  optional="show"/>
                     <field name="user_id"  optional="show" />
                     <field name="company_id"  optional="show" />
                     <field name="user_id"  optional="show" />
-                    <field name="his_mass_billing_id" optional="show"/>
                     <field name="state"  optional="show" />
                 </list>
             </field>

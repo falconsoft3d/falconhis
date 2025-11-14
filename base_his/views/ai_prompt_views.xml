@@ -9,13 +9,15 @@
                     <header>
                         <button name="action_set_as_default" string="Set as Default"
                            type="object" invisible="is_default"
-                           class="oe_highlight"/>
-                        <field name="is_default" widget="statusbar" clickable="False"/>
+                           class="oe_highlight"
+                           icon="fa-star"/>
                     </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
                             <field name="active" widget="boolean_button" 
                                    options="{'terminology': 'active'}"/>
+                            <field name="is_default" widget="boolean_button"
+                                   options="{'terminology': {'true': 'Default', 'false': 'Not Default'}}"/>
                         </div>
                         <div class="oe_title">
                             <h1>
