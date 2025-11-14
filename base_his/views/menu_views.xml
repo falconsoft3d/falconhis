@@ -47,6 +47,18 @@
                         sequence="22"/>
              </menuitem>
 
+
+            <menuitem id="menu_data"
+                  sequence="30"
+                  name="Data">
+
+                 <menuitem id="menu_res_partner"
+                        name="Patients"
+                        action="contacts.action_contacts"
+                        sequence="21"/>
+             </menuitem>
+
+
             <menuitem id="menu_management"
                   sequence="30"
                   name="Management">
